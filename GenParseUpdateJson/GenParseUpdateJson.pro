@@ -18,7 +18,7 @@ INCLUDEPATH += $$PWD/../Common
 
 SOURCES += \
         inigenparser.cpp \
-        jsongenparser.cpp \
+        ../Common/jsongenparser.cpp \
         main.cpp \
 
 # Default rules for deployment.
@@ -29,5 +29,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     ../Common/DataStruct.h \
     inigenparser.h \
-    jsongenparser.h \
+    ../Common/jsongenparser.h \
     ../Common/util.h

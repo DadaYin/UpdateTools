@@ -10,6 +10,11 @@ typedef struct BasicInfoTag{
     QString UpdateDir;
 }BasicInfo;
 
+typedef struct ClientBasicInfoTag{
+    QString HttpRootUrl;
+    QString UpdateDir;
+}ClientBasicInfo;
+
 typedef struct OneUpdateFileInfoTag{
     QString RelativeName;
     QString LatestVersion;
