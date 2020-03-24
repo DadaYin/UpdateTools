@@ -1,6 +1,7 @@
 #include "updatewidget.h"
 
 #include <QLabel>
+#include <QThread>
 #include <QPushButton>
 #include <QProgressBar>
 #include <QDateTime>
@@ -38,6 +39,12 @@ void UpdateWidget::OnGetJsonBtnClicked()
 
 void UpdateWidget::OnDownLoadFinished(QString fullFileName, QString relativeName)
 {
+    DownloadFile* sendDowm = static_cast<DownloadFile*>(sender());
+    if(sendDowm != NULL)
+    {
+        disconnect(sendDowm, SIGNAL(DownLoadFinished(QString, QString)), this, SLOT(OnDownLoadFinished(QString, QString)));
+        sendDowm->deleteLater();
+    }
     AppendTextStr("下载\t" + relativeName + "\t结束");
     if(relativeName == "update.json")
     {
@@ -261,6 +268,7 @@ void UpdateWidget::StartDownLoad()
 
 void UpdateWidget::StartDownLoadOneFile()
 {
+//    QThread::msleep(100);
     if(downLoadFileList_.size() <=0)
     {
         return;

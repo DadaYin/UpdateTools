@@ -24,7 +24,7 @@ public slots:
     void OnError(QNetworkReply::NetworkError);
 
 private:
-    QNetworkAccessManager *myNetworkManager;
+//    QNetworkAccessManager *myNetworkManager;
     QNetworkRequest myNetworkRequest;
     QNetworkReply *myNetworkReply;
 

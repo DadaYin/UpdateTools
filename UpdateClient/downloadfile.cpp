@@ -50,6 +50,11 @@ void DownloadFile::onReadyRead()
 
 void DownloadFile::onFinished()
 {
+    QNetworkAccessManager *NetworkManager = static_cast<QNetworkAccessManager*>(sender());
+    if(NetworkManager != NULL)
+    {
+        NetworkManager->deleteLater();
+    }
     emit DownLoadFinished(myFullFileName, relativeName_);
 
 //    qDebug() << QThread::currentThreadId() << "DownFinished---myFullFileName = " << myFullFileName << ",relativeName_ = " << relativeName_;
