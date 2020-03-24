@@ -22,7 +22,8 @@ SOURCES += \
     downloadfile.cpp \
     inigenparser.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    updatewidget.cpp
 
 HEADERS += \
     ../Common/jsongenparser.h \
@@ -30,7 +31,8 @@ HEADERS += \
     ../Common/util.h \
     downloadfile.h \
     inigenparser.h \
-    mainwindow.h
+    mainwindow.h \
+    updatewidget.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

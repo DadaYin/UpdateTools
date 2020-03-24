@@ -11,7 +11,7 @@ ClientBasicInfo IniGenParser::GetBasicInfo()
 {
     QString fileName;
     fileName = QCoreApplication::applicationDirPath();
-    fileName += "/basic.ini";
+    fileName += "/clientbasic.ini";
 
     QSettings settings(fileName, QSettings::IniFormat);
     settings.setIniCodec("UTF8");
@@ -19,6 +19,7 @@ ClientBasicInfo IniGenParser::GetBasicInfo()
     ClientBasicInfo basicInfo;
     basicInfo.UpdateDir = settings.value("UpdateDir").toString();
     basicInfo.HttpRootUrl = settings.value("HttpRootUrl").toString();
+    basicInfo.TmpUpdateDir = settings.value("TmpUpdateDir").toString();
 
     return basicInfo;
 }

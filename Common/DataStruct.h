@@ -4,6 +4,11 @@
 #include <QString>
 #include <QList>
 
+typedef enum ErrorCodeTag{
+    Err_NoErr,
+    Err_NoFile
+}ErrorCode;
+
 typedef struct BasicInfoTag{
     QString HttpRootUrl;
     QString MainVersion;
@@ -13,6 +18,7 @@ typedef struct BasicInfoTag{
 typedef struct ClientBasicInfoTag{
     QString HttpRootUrl;
     QString UpdateDir;
+    QString TmpUpdateDir;
 }ClientBasicInfo;
 
 typedef struct OneUpdateFileInfoTag{

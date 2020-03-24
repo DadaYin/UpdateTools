@@ -15,10 +15,13 @@ public:
     explicit DownloadFile(QObject *parent = nullptr);
     bool DownloadFromUrl(const QString& _rootDir, const QString& _url, const QString& _relativeName);
 signals:
+    void DownLoadFinished(QString fullFileName, QString relativeFileName);
+    void DownLoadError(QString fullFileName, QString relativeFileName, QNetworkReply::NetworkError);
 
 public slots:
     void onReadyRead();
     void onFinished();
+    void OnError(QNetworkReply::NetworkError);
 
 private:
     QNetworkAccessManager *myNetworkManager;
@@ -26,6 +29,9 @@ private:
     QNetworkReply *myNetworkReply;
 
     QString myFullFileName;
+    QString relativeName_;
+
+    bool AppendStatus;
 };
 
 #endif // DOWNLOADFILE_H
