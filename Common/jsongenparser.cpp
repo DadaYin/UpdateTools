@@ -8,6 +8,7 @@
 
 #include <QFile>
 #include <QTextStream>
+#include <QTextCodec>
 
 #include "util.h"
 
@@ -41,6 +42,7 @@ bool JsonGenParser::GenUpdateJson(const UpdateJsonInfo &_updateJsonInfo, const Q
         return false;
 
     QTextStream out(&file);
+    out.setCodec("utf-8");
     out << strJson.toUtf8();
 
     file.close();
