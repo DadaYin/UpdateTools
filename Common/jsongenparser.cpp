@@ -41,7 +41,7 @@ bool JsonGenParser::GenUpdateJson(const UpdateJsonInfo &_updateJsonInfo, const Q
         return false;
 
     QTextStream out(&file);
-    out << strJson;
+    out << strJson.toUtf8();
 
     file.close();
 
@@ -128,7 +128,7 @@ bool JsonGenParser::ParseDescribe(const QJsonValue &_value, const int _size, QLi
     }
     for(int i=0; i<nSize; i++)
     {
-        _Describe.push_back(_value[i].toString());
+        _Describe.push_back(array[i].toString());
     }
     return true;
 }
@@ -159,7 +159,7 @@ bool JsonGenParser::ParseUpdateFile(const QJsonValue &_value, const int _size, Q
     for(int i=0; i<nSize; i++)
     {
         OneUpdateFileInfo oneInfo;
-        ParseOneUpdateFile(_value[i], oneInfo);
+        ParseOneUpdateFile(array[i], oneInfo);
         _UpdateFileInfoList.push_back(oneInfo);
     }
     return true;
